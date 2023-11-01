@@ -1,0 +1,223 @@
+Contents:- 
+MRF 
+For Each
+
+MRF:-(Map Reduce Filter)
+=> HOF (Higher Order Functions) function inside a function.
+
+1.Map:- It iterates/transforms over each and every element in an array 
+and produces new array.
+syntax:- arrayname.map(we need to pass function)
+
+=>basic example without map:-
+var arr = [12,13,14,15]
+expected output:- [24,26,28,30]
+steps:-
+=> step1:- for loop.
+=> step 2:- multiply the element with 2.
+=> step 3:- create a new array and push into it.
+=> step 4:- print the new array.
+ var arr = [12,13,14,15]
+ var res=[];
+ for(var i=0;i<arr.length;i++){
+   res.push(arr[i]*2);
+ }
+ console.log(res);
+
+=> with map
+map method:- 
+=>It takes a function as parameter and 
+apply on each and every element in an array.
+=>it returns a new array
+=> Maximum it will be an arrow function.(beacuse it reduce lines of code,
+memory consumption and time taken)
+=>It is an array method.
+example:-
+var res = arr.map(()=>{})  
+when there is only one line in function which return something.
+//arr.map(()=>)
+=>parameter can be userdefined(ele,element)
+
+*/
+//! with map
+//normal function
+/*const arr1 = [12,13,14,15]
+function double(element) {
+    return element * 2;
+}
+const result = arr1.map(double)
+console.log(result);
+*/
+//?second type function
+/*const arr2 = [12,13,14,15]
+const result1 = arr2.map(function(element) {
+    return element * 2;
+})
+console.log(result1);
+*/
+//?third type function
+/*const arr3 = [12,13,14,15]
+const result2 = arr3.map((element)=>{
+    return element * 2;
+})
+console.log(result2);
+*/
+//! when there is only one line in function which return something.
+/*const arr4=[12,13,14,15];
+const result3 = arr4.map((ele)=>ele*2)
+console.log(result3);
+*/
+practice task:-
+ const arr = [apple,mangoe,orange]
+ output:- [apples,mangoes,oranges]
+//!practice task:-
+/*const fruits = ["apple","mangoe","orange"]
+const res1 = fruits.map((ele)=>ele+"s")
+console.log(res1);
+*/
+
+Filter:-
+=>It is basically used to Filter😂
+=> It is actually used to filter the elements inside the array.
+//example without filter:- 
+var arr = [12,13,14,15]
+o/p:- [12,14]
+steps:-
+=>step1:- for loop
+=>step 2:- if condition(array elements divided by 2)
+=>step 3:- create a new array and push the result into it
+=>step 4:- printing the array.
+var arr = [12,13,14,15];
+var res =[];
+for(var i=0;i<arr.length;i++)
+{
+    if(arr[i]%2===0){
+        res.push(arr[i]);
+    }
+}
+console.log(res);
+
+// with filter
+=> filter is based on a condition.
+=> It takes a function as parameter and 
+apply on each and every element in an array.
+=> I t returns in an new array
+=> if condition is true it will push to array orelse it will be rejected
+syntax:- 
+arrayname.filter(function)
+example:-
+//!Filter 
+/*const arr = [12,13,14,15]
+const result = arr.filter((ele)=>ele%2==0)
+console.log(result);
+*/
+
+/*const arr = [12,13,14,15]
+const result = arr.filter((x)=>{
+    return x%2===0
+})
+console.log(result);
+*/
+/*const arr = [12,13,14,15]
+function even(a){
+    return a%2===0
+}
+const result = arr.filter(even)
+console.log(result);
+*/
+/*const arr = [12,13,14,15]
+const result = arr.filter(function(a){
+    return a%2===0
+})
+console.log(result);
+*/
+//!practice task
+//const great = [4,3,2,1,5]
+//Print the elements which are greater than 2
+//o/p:- [4,3,5]
+/*const great = [4,3,2,1,5]
+const result = great.filter((x)=>x>2)
+console.log(result);
+*/
+
+Reduce:-(confusing topic because it is not similar to the name)
+=> It is generally used when we have to take all the array element and print the 
+single value. Example :- greatest number , sum of the array.
+=> it is only for array.
+=>total, summation
+syntax:-
+arrayname.reduce((acc,cv)=>{
+
+},acc)
+acc=> accumulator is the initial value
+if initial value is not given it takes the first value.
+cv=> currentvalue is the current element/value
+
+//example without reduce
+//sum of the array.
+//!Reduce
+//!Sum of the array without reduce
+/*const array= [1,2,3,4,5]
+let sum =0;
+for(var i=0;i<array.length;i++){
+    sum = sum+array[i]
+}
+console.log(sum);
+*/
+//*sum of the array using reduce
+/*const array = [1,2,3,4,5];
+const result = array.reduce((sum,i)=>{
+        return sum+i
+},0)
+console.log(result);
+*/
+//? multiple the array element with reduce
+/*const array = [1,2,3,4,5];
+const result = array.reduce((mul,i)=>{
+        return mul*i;
+},1)
+console.log(result);
+*/
+//* greatest number in an array with reduce
+//!without reduce
+/*const array = [1,2,3,4,5]
+let max =0;
+for(var i=0;i<array.length;i++){
+    if(array[i]>max)
+    max= array[i]
+}
+console.log(max);
+*/
+/*const array = [1,2,3,4,5]
+console.log(Math.max(...array));
+*/
+//!with reduce
+/*const array = [1,2,3,4,5]
+const result = array.reduce((max,i)=>{
+if(i>max){
+    max=i;
+}
+return max;
+},0)
+console.log(result);
+*/
+//?with math.max
+/*const array = [1,2,3,4,5]
+const result = array.reduce((great,i)=>{
+    return Math.max(great,i) 
+},0)
+console.log(result);
+*/
+
+//for each loop
+=> to print the array elements
+=> It is applicable only for arrays
+=> It takes function as a parameter
+=> It will apply on each and every element
+=> It is generally used for printing.
+=> It returns undefined.
+
+example:-
+var arr = [1,2,3,4,5]
+var res = arr.forEach((ele)=>console.log(ele))
+console.log(res)
